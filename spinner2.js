@@ -1,41 +1,13 @@
-//process.stdout.write('hello from spinner1.js... \rheyyy\n');
 
-setTimeout(() => {
-  process.stdout.write('\r|   ');
-}, 100);
+const spinner = function() {
+  const characters = ['\r|   ', '\r/   ', '\r-   ', '\r\\   ', '\r|   ', '\n' ];
+  let ms = 100;
+  for (let char of characters) {
+    setTimeout(() => {
+      process.stdout.write(char);
+    }, ms);
+    ms += 200;
+  }
+};
 
-setTimeout(() => {
-  process.stdout.write('\r/   ');
-}, 300);
-
-setTimeout(() => {
-  process.stdout.write('\r-   ');
-}, 500);
-
-setTimeout(() => {
-  process.stdout.write('\r\\   ');
-}, 700);
-
-setTimeout(() => {
-  process.stdout.write('\r|   ');
-}, 900);
-
-setTimeout(() => {
-  process.stdout.write('\r/   ');
-}, 1100);
-
-setTimeout(() => {
-  process.stdout.write('\r-   ');
-}, 1300);
-
-setTimeout(() => {
-  process.stdout.write('\r\\   ');
-}, 1500);
-
-setTimeout(() => {
-  process.stdout.write('\r|   ');
-}, 1700);
-
-setTimeout(() => {
-  process.stdout.write("\n");
-}, 1900);
+spinner();
